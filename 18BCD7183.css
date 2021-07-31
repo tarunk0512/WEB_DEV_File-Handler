@@ -1,0 +1,39 @@
+body {
+    text-align: center;
+    width: 50vw;
+    margin: 20px auto;
+}
+
+#broch {
+    display: block;
+    justify-content: center;
+    line-height: 40px;
+    background-color: rgb(118, 10, 206);
+    color: white;
+    border: 1px solid violet;
+    border-radius: 15px;
+}
+
+#error {
+    text-align: center;
+    color: red;
+}
+
+input,
+button,
+select {
+    /* display: flex;
+    justify-content: center; */
+    padding: 10px;
+    border-radius: 15px;
+    width: 80%;
+    display: block;
+    width: 100%;
+    margin: 5px;
+}
+
+button {
+    background-color: rgb(21, 221, 154);
+    color: white;
+    text-align: center;
+}

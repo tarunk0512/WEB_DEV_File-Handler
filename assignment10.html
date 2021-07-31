@@ -1,0 +1,111 @@
+<html>
+
+<head>
+    <title> FILE HANDLER </title>
+    <link rel="stylesheet" href="18BCD7183.css">
+    <script src="jquery-1.11.3.min.js"></script>
+    <script>
+        function submitForm() {
+            var name = document.forms['form']['a1'].value;
+            var email = document.forms['form']['a2'].value;
+            var phone = document.forms['form']['a3'].value;
+            var program = document.forms['form']['list1'].value;
+            var state = document.forms['form']['list2'].value;
+            var city = document.forms['form']['a4'].value;
+            if (name == "" || email == "" || phone == "" || program == "-1" || state == "-1" || city == "") {
+                document.getElementById('error').innerHTML = '<div style="color:red">All fields are required.</div>';
+            } else {
+                $.ajax({
+                    type: "POST",
+                    url: "18BCD7183.php",
+                    data: {
+                        name: name,
+                        email: email,
+                        phone: phone,
+                        program: program,
+                        state: state,
+                        city: city
+                    },
+                    success: function(html) {
+                        $("#error").html(html).show();
+                        location.replace('thankyou.html')
+                    }
+                });
+                return false;
+            }
+
+            return false;
+        }
+    </script>
+</head>
+
+<body>
+    <div id="broch"> The brochure will be downloaded after submitting the following form </div>
+    <form onsubmit="return submitForm();" id="form">
+
+        <div id="error"> </div>
+        <input type="text" name="a1" placeholder="Name">
+        <input type="email" name="a2" placeholder="E-mail Address">
+        <input type="number" name="a3" placeholder="Phone number">
+
+        <select id="list1" class="class1" name="list1" placeholder="Program interested in">
+            <option value="-1">Program interested in</option>
+            <option value="B.Tech CSE">B.Tech CSE</option>
+            <option value="B.Tech (CSE with specialization in Data Analytics)">B.Tech (CSE with specialization in Data Analytics)</option>
+            <option value="B.Tech (CSE with specialization in Networking and Security)">B.Tech (CSE with specialization in Networking and Security)</option>
+            <option value="B.Tech (CSE with specialization in Artificial Intelligence)">B.Tech (CSE with specialization in Artificial Intelligence)</option>
+            <option value="B.Tech (CSE with specialization in Robotics)">B.Tech (CSE with specialization in Robotics)</option>
+        </select>
+
+
+        <select id="list2" class="class2" name="list2" placeholder="States and Union Territories">
+            <option value="-1">States and Union Territories</option>
+            <option value="Andhra Pradesh">Andhra Pradesh</option>
+            <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+            <option value="Assam">Assam</option>
+            <option value="Bihar">Bihar</option>
+            <option value="Chhattisgarh">Chhattisgarh</option>
+            <option value="Goa">Goa</option>
+            <option value="Gujarat">Gujarat</option>
+            <option value="Haryana">Haryana</option>
+            <option value="Himachal Pradesh">Himachal Pradesh</option>
+            <option value="Jharkhand">Jharkhand</option>
+            <option value="Karnataka">Karnataka</option>
+            <option value="Kerala">Kerala</option>
+            <option value="Madhya Pradesh">Madhya Pradesh </option>
+            <option value="Maharashtra">Maharashtra</option>
+            <option value="Manipur">Manipur</option>
+            <option value="Meghalaya">Meghalaya</option>
+            <option value="Mizoram">Mizoram</option>
+            <option value="Nagaland">Nagaland</option>
+            <option value="Odisha">Odisha</option>
+            <option value="Punjab">Punjab</option>
+            <option value="Rajasthan">Rajasthan</option>
+            <option value="Sikkim">Sikkim</option>
+            <option value="Tamil Nadu">Tamil Nadu</option>
+            <option value="Telangana">Telangana</option>
+            <option value="Tripura">Tripura</option>
+            <option value="Uttar Pradesh">Uttar Pradesh</option>
+            <option value="Uttarakhand">Uttarakhand</option>
+            <option value="West Bengal">West Bengal</option>
+
+            <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
+            <option value="Chandigarh">Chandigarh</option>
+            <option value="Dadra & Nagar Haveli and Daman & Diu">Dadra & Nagar Haveli and Daman & Diu</option>
+            <option value="Delhi">Delhi</option>
+            <option value="Jammu and Kashmir">Jammu and Kashmir</option>
+            <option value="Lakshadweep">Lakshadweep</option>
+            <option value="Puducherry">Puducherry</option>
+            <option value="Ladakh">Ladakh</option>
+
+        </select>
+
+
+        <input type="text" name="a4" placeholder="City">
+
+        <button type="submit" class="b1">Submit</button>
+    </form>
+
+</body>
+
+</html>
